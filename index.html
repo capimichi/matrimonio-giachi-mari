@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Giacomo &amp; Marika · 25 giugno 2027</title>
+<style>
+:root{--bg:#faf6f5;--text:#2a2326;--muted:#6e6468;--border:#d8cdd1;--card:#fff;--panel:#f5eef0;--accent:#a23d60;--accent-bg:#f6dde5;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#1b1618;--text:#f2eaed;--muted:#b6a9ae;--border:#4b4044;--card:#262022;--panel:#2d2629;--accent:#e58aa8;--accent-bg:#4a2a37}}
+:root[data-theme="dark"]{--bg:#1b1618;--text:#f2eaed;--muted:#b6a9ae;--border:#4b4044;--card:#262022;--panel:#2d2629;--accent:#e58aa8;--accent-bg:#4a2a37}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font-family:Georgia,'Times New Roman',serif;padding:16px;line-height:1.5}
+.wrap{max-width:640px;margin:0 auto}
+.sans,.btn,label,.small,.time,.count-num,.count-label,.maplink,.deadline{font-family:ui-sans-serif,system-ui,-apple-system,'Segoe UI',sans-serif}
+.muted{color:var(--muted)}
+h2,h3,p{margin:0;font-weight:400}
+.hero{position:relative;overflow:hidden;border:1px solid var(--border);border-radius:28px;background:var(--card);padding:42px 22px 32px;text-align:center}
+.flower{position:absolute;width:150px;height:150px;pointer-events:none}
+.fa{top:-35px;left:-38px}.fb{right:-40px;bottom:-48px;transform:rotate(165deg)}
+.stem{stroke:var(--text);stroke-width:1.5;fill:none;opacity:.6}
+.p1{fill:#ED93B1}.p2{fill:#F4C0D1}.p3{fill:#AFA9EC}
+.in{position:relative;z-index:1}
+.eyebrow{font-size:.78rem;letter-spacing:.12em;text-transform:uppercase}
+.names{font-size:clamp(2.5rem,12vw,4.6rem);line-height:.95;letter-spacing:-.04em;margin:.6rem 0}
+.amp{font-style:italic}
+.rule{width:74px;height:1px;background:var(--border);margin:20px auto}
+.date{font-size:1.1rem;letter-spacing:.08em;text-transform:uppercase}
+.countdown{display:grid;grid-template-columns:repeat(4,1fr);gap:7px;max-width:420px;margin:18px auto 0}
+.countdown[hidden]{display:none}
+.cb{border-top:1px solid var(--border);padding:12px 3px 4px}
+.count-num{font-size:1.4rem;font-weight:500}
+.count-label{font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.row{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin-top:24px}
+.btn{min-height:46px;border-radius:999px;padding:.7rem 1.05rem;font-weight:500;border:1px solid var(--border);cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;justify-content:center;color:var(--text);background:transparent;font-size:.92rem;text-align:center}
+.btn.pri{background:var(--accent-bg);border-color:var(--accent)}
+.btn:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.panel{border:1px solid var(--border);border-radius:22px;background:var(--panel);padding:20px;margin-top:14px}
+.hid{display:none}
+.hid:target{display:block}
+.title{font-size:1.7rem;margin:.3rem 0}
+.small{font-size:.78rem;line-height:1.45;color:var(--muted)}
+.hd{text-align:center;margin-bottom:20px}
+.tl{display:grid;grid-template-columns:68px minmax(0,1fr);gap:8px 12px}
+.time{font-weight:500;font-size:.9rem;padding-top:3px;line-height:1.25}
+.ev{padding:0 0 18px 12px;border-left:1px solid var(--border)}
+.ev:last-child{padding-bottom:2px}
+.ev .d{font-size:.9rem;color:var(--muted);margin-top:2px;font-family:ui-sans-serif,system-ui,sans-serif}
+.house{margin-top:10px;border-top:1px solid var(--border);padding-top:8px;font-family:ui-sans-serif,system-ui,sans-serif;font-size:.9rem}
+.maplink{display:inline-block;margin-top:4px;font-size:.85rem;font-weight:500;color:var(--accent);text-decoration:underline}
+.deadline{display:inline-block;margin-top:10px;border:1px solid var(--accent);background:var(--accent-bg);border-radius:999px;padding:6px 14px;font-size:.82rem;font-weight:500}
+form{display:grid;gap:12px}
+label{font-size:.85rem;font-weight:500;display:block}
+input,textarea{width:100%;margin-top:5px;border:1px solid var(--border);border-radius:14px;background:var(--card);color:var(--text);padding:12px 13px;font:inherit;font-size:16px}
+.choice{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}
+.choice .btn[aria-pressed="true"]{border-color:var(--accent);background:var(--accent-bg)}
+.send{display:grid;gap:8px}
+.err{min-height:1.2em;color:var(--accent);font-family:ui-sans-serif,system-ui,sans-serif;font-size:.85rem;text-align:center}
+.info{display:grid;gap:10px}
+.it{border-top:1px solid var(--border);padding-top:10px}
+.it .d{font-family:ui-sans-serif,system-ui,sans-serif;font-size:.9rem;color:var(--muted);margin-top:2px}
+.story p{font-family:ui-sans-serif,system-ui,sans-serif;font-size:.95rem;line-height:1.7;margin-top:12px;text-align:center}
+.iban{margin-top:16px;border:1px dashed var(--accent);border-radius:14px;background:var(--card);padding:14px 10px;text-align:center;font-family:ui-monospace,Menlo,Consolas,monospace;font-size:.95rem;letter-spacing:.04em;word-break:break-all;user-select:all;-webkit-user-select:all}
+.foot{text-align:center;padding:28px 0 12px}
+.foot .big{font-size:1.5rem;font-style:italic}
+@media(max-width:360px){.hero{padding-left:16px;padding-right:16px}.count-num{font-size:1.15rem}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<section class="hero" aria-labelledby="t">
+<svg class="flower fa" viewBox="0 0 160 160" aria-hidden="true"><path class="stem" d="M18 144 C47 112,47 61,100 18 M45 104 C27 94 21 77 26 58 M62 78 C90 76 109 58 116 40"/><ellipse class="p1" cx="29" cy="53" rx="19" ry="10" transform="rotate(-38 29 53)"/><ellipse class="p2" cx="49" cy="99" rx="23" ry="11" transform="rotate(34 49 99)"/><circle class="p3" cx="104" cy="21" r="16"/><circle class="p1" cx="117" cy="40" r="11"/></svg>
+<svg class="flower fb" viewBox="0 0 160 160" aria-hidden="true"><path class="stem" d="M18 144 C47 112,47 61,100 18 M45 104 C27 94 21 77 26 58 M62 78 C90 76 109 58 116 40"/><ellipse class="p2" cx="29" cy="53" rx="19" ry="10" transform="rotate(-38 29 53)"/><ellipse class="p3" cx="49" cy="99" rx="23" ry="11" transform="rotate(34 49 99)"/><circle class="p1" cx="104" cy="21" r="16"/><circle class="p2" cx="117" cy="40" r="11"/></svg>
+<div class="in">
+<div class="eyebrow sans muted">Siete invitati al nostro matrimonio</div>
+<h2 id="t" class="names">Giacomo <span class="amp">&amp;</span> Marika</h2>
+<div class="rule"></div>
+<p class="date">25 giugno 2027</p>
+<p class="sans muted" style="margin-top:8px;font-size:.92rem">Villa Sisò, Cesenatico</p>
+<p class="sans" style="max-width:480px;margin:14px auto 0;font-size:.92rem">Siamo felici di condividere con voi il giorno più bello della nostra vita.</p>
+<div class="countdown" id="cdw" hidden aria-label="Conto alla rovescia">
+<div class="cb"><div id="d" class="count-num">—</div><div class="count-label">giorni</div></div>
+<div class="cb"><div id="h" class="count-num">—</div><div class="count-label">ore</div></div>
+<div class="cb"><div id="m" class="count-num">—</div><div class="count-label">min</div></div>
+<div class="cb"><div id="s" class="count-num">—</div><div class="count-label">sec</div></div>
+</div>
+<div class="row">
+<a class="btn pri" href="#prog" data-p="prog" aria-expanded="false">Scopri il programma</a>
+<a class="btn" href="https://www.google.com/maps/search/?api=1&amp;query=Villa+Sis%C3%B2+Cesenatico" target="_blank" rel="noopener">Apri mappa</a>
+<a class="btn" href="#rsvp" data-p="rsvp" aria-expanded="false">Conferma presenza</a>
+<a class="btn" href="#story" data-p="story" aria-expanded="false">La nostra storia</a>
+<a class="btn" href="#info" data-p="info" aria-expanded="false">Informazioni utili</a>
+<a class="btn" href="#gift" data-p="gift" aria-expanded="false">Viaggio di nozze</a>
+<a class="btn" href="https://www.youtube.com/results?search_query=Max+Pezzali+Io+ci+saro" target="_blank" rel="noopener">Ascolta la nostra canzone</a>
+</div>
+</div>
+</section>
+
+<section id="prog" class="panel hid" aria-label="Programma">
+<div class="hd"><h3 class="title">Il programma</h3><p class="small">Un giorno speciale da vivere insieme, dall’inizio alla fine.</p></div>
+<div class="tl">
+<div class="time">Tarda mattina</div>
+<div class="ev"><strong>Buffet a casa degli sposi</strong><div class="d">Iniziamo la giornata insieme, a casa dello sposo e a casa della sposa.</div>
+<div class="house"><strong>Casa dello sposo</strong><div class="muted">Via delle Carrare 38, San Marino</div><a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Via+delle+Carrare+38+San+Marino" target="_blank" rel="noopener">Apri mappa</a></div>
+<div class="house"><strong>Casa della sposa</strong><div class="muted">Via dei Ciliegi 6, Cappone, Vallefoglia</div><a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Via+dei+Ciliegi+6+Cappone+Vallefoglia" target="_blank" rel="noopener">Apri mappa</a></div></div>
+<div class="time">16:30</div><div class="ev"><strong>Cerimonia</strong><div class="d">Villa Sisò, Cesenatico</div></div>
+<div class="time">18:00</div><div class="ev"><strong>Ricevimento</strong><div class="d">Villa Sisò, Cesenatico</div></div>
+<div class="time">20:00</div><div class="ev"><strong>Cena</strong><div class="d">Ci sediamo a tavola insieme.</div></div>
+<div class="time">22:00</div><div class="ev"><strong>Taglio della torta</strong><div class="d">Il momento più dolce della serata.</div></div>
+<div class="time">—</div><div class="ev"><strong>Festa e open bar</strong><div class="d">Musica, brindisi e balli fino alle 00:00.</div></div>
+</div>
+</section>
+
+<section id="rsvp" class="panel hid" aria-label="Conferma presenza">
+<div class="hd"><h3 class="title">Ci sarai?</h3><p class="small">Ti chiediamo gentilmente di confermare la tua presenza.</p><div class="deadline">Entro il 1 maggio 2027</div></div>
+<form id="f" novalidate>
+<label>Nome e cognome<input id="name" autocomplete="name" placeholder="Scrivi il tuo nome"></label>
+<div><span class="sans" style="font-size:.85rem;font-weight:500">Presenza</span>
+<div class="choice" role="group" aria-label="Presenza">
+<button type="button" class="btn ch" data-v="si" aria-pressed="false">Sì, ci sarò ❤️</button>
+<button type="button" class="btn ch" data-v="no" aria-pressed="false">Non potrò esserci</button>
+<button type="button" class="btn ch" data-v="reg" aria-pressed="false">Non ci sarò ma farò comunque il regalo ❤️</button>
+</div></div>
+<label>Numero di persone<input id="n" type="number" min="1" max="10" inputmode="numeric" placeholder="Es. 2"></label>
+<label>Messaggio per gli sposi <span class="muted" style="font-weight:400">(facoltativo)</span><span class="small" style="display:block;font-weight:400;margin-top:2px">Prima di confermare, indica qui eventuali intolleranze o allergie.</span><textarea id="msg" rows="3" placeholder="Intolleranze, allergie o un messaggio per noi..."></textarea></label>
+<div class="send">
+<a id="wg" class="btn pri" href="https://wa.me/393333246573?text=Ciao!%20Confermo%20la%20mia%20presenza%20al%20matrimonio." target="_blank" rel="noopener">Conferma a Giacomo</a>
+<a id="wm" class="btn pri" href="https://wa.me/393883609814?text=Ciao!%20Confermo%20la%20mia%20presenza%20al%20matrimonio." target="_blank" rel="noopener">Conferma a Marika</a>
+</div>
+<div id="err" class="err" aria-live="polite"></div>
+<p class="small" style="text-align:center">Si apre WhatsApp con il messaggio già pronto: ti basta premere invio.</p>
+</form>
+</section>
+
+<section id="story" class="panel hid story" aria-label="La nostra storia">
+<div class="hd"><h3 class="title">La nostra storia</h3></div>
+<p style="margin-top:0">Un pomeriggio di maggio ci siamo incontrati in quello che per noi è un posto magico, ovvero il circuito di Misano.</p>
+<p>Da quel giorno i nostri occhi non hanno mai smesso di cercarsi, il resto lo sapete già.</p>
+<p>Vi aspettiamo per costruire nuovi ricordi con voi.</p>
+<p style="font-family:Georgia,serif;font-style:italic">Il bello deve ancora venire.</p>
+</section>
+
+<section id="info" class="panel hid" aria-label="Informazioni utili">
+<div class="hd"><h3 class="title">Informazioni utili</h3></div>
+<div class="info">
+<div class="it"><strong>Data</strong><div class="d">25 giugno 2027</div></div>
+<div class="it"><strong>Cerimonia</strong><div class="d">Villa Sisò, Cesenatico, ore 16:30</div></div>
+<div class="it"><strong>Ricevimento</strong><div class="d">Villa Sisò, Cesenatico, ore 18:00</div></div>
+<div class="it"><strong>Buffet della tarda mattinata</strong><div class="d">A casa dello sposo (San Marino) e a casa della sposa (Cappone, Vallefoglia). Gli indirizzi sono nel programma.</div></div>
+<div class="it"><strong>Spostamenti</strong><div class="d">Cerimonia e ricevimento si svolgono nella stessa location.</div></div>
+<div class="it"><strong>Conferma presenza</strong><div class="d">Ti chiediamo di confermare entro il 1 maggio 2027.</div></div>
+</div>
+</section>
+
+<section id="gift" class="panel hid" aria-label="Viaggio di nozze">
+<div class="hd"><h3 class="title">Il nostro viaggio di nozze</h3></div>
+<p class="sans" style="text-align:center;font-size:.95rem;line-height:1.7">Se volete contribuire a rendere unico e indimenticabile il nostro viaggio di nozze.</p>
+<div class="iban" id="iban">SM61Z0303409804000040124792</div>
+<div class="row" style="margin-top:12px"><button type="button" class="btn pri" id="cp">Copia IBAN</button></div>
+<div id="cpm" class="err" aria-live="polite"></div>
+</section>
+
+<div class="foot"><div class="big">Non vediamo l'ora di festeggiare con voi.</div><div class="sans small" style="margin-top:10px">Giacomo &amp; Marika</div></div>
+</div>
+
+<script>
+(function(){
+var $=function(s){return document.querySelector(s)};
+var T=new Date('2027-06-25T16:30:00+02:00').getTime(),el={d:$('#d'),h:$('#h'),m:$('#m'),s:$('#s')},tm;
+function pad(x){return String(x).padStart(2,'0')}
+function tick(){var x=T-Date.now();if(x<=0){el.d.textContent=el.h.textContent=el.m.textContent=el.s.textContent='0';clearInterval(tm);return}
+el.d.textContent=Math.floor(x/864e5);x%=864e5;el.h.textContent=pad(Math.floor(x/36e5));x%=36e5;el.m.textContent=pad(Math.floor(x/6e4));x%=6e4;el.s.textContent=pad(Math.floor(x/1e3))}
+$('#cdw').hidden=false;tick();tm=setInterval(tick,1000);
+document.querySelectorAll('[data-p]').forEach(function(b){b.addEventListener('click',function(e){e.preventDefault();
+var p=document.getElementById(b.dataset.p),open=p.classList.contains('hid');
+p.classList.toggle('hid',!open);b.setAttribute('aria-expanded',String(open));
+if(open)p.scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'nearest'})})});
+var v='';
+document.querySelectorAll('.ch').forEach(function(b){b.addEventListener('click',function(){v=b.dataset.v;
+document.querySelectorAll('.ch').forEach(function(x){x.setAttribute('aria-pressed',String(x===b))});$('#err').textContent=''})});
+var TXT={si:'Ci sarò al vostro matrimonio il 25 giugno 2027 ❤️',no:'Purtroppo non potrò esserci.',reg:'Non ci sarò ma farò comunque il regalo ❤️'};
+function build(){var name=$('#name').value.trim(),n=$('#n').value.trim(),msg=$('#msg').value.trim();
+var t='Ciao! Sono '+name+'. '+TXT[v];
+if(n&&v!=='no'&&v!=='reg')t+=' Saremo in '+n+'.';
+if(msg)t+='\n\n'+msg;return t}
+function go(num){return function(e){
+if(!$('#name').value.trim()){e.preventDefault();$('#err').textContent='Scrivi prima il tuo nome.';$('#name').focus();return}
+if(!v){e.preventDefault();$('#err').textContent='Scegli una delle opzioni di presenza.';return}
+var q=parseInt($('#n').value,10);
+if(v==='si'&&!(q>=1)){e.preventDefault();$('#err').textContent='Indica quante persone sarete.';$('#n').focus();return}
+$('#err').textContent='';this.href='https://wa.me/'+num+'?text='+encodeURIComponent(build())}}
+$('#cp').addEventListener('click',function(){var t=$('#iban').textContent.trim(),m=$('#cpm');
+function ok(){m.textContent='IBAN copiato.'}
+function no(){var r=document.createRange();r.selectNodeContents($('#iban'));var s=getSelection();s.removeAllRanges();s.addRange(r);m.textContent='Tieni premuto sull’IBAN per copiarlo.'}
+try{navigator.clipboard.writeText(t).then(ok,no)}catch(e){no()}});
+$('#wg').addEventListener('click',go('393333246573'));
+$('#wm').addEventListener('click',go('393883609814'));
+})();
+</script>
+</body>
+</html>
